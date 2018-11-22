@@ -320,12 +320,12 @@
                             </li>
                         <% } %>
                         <ul class="d_hierarchy" hierarchy="<%= hierarchy.uniqueName %>" hierarchycaption="<%= hierarchy.caption %>">
-                        <div class="hgroup treehidden"><%= hierarchy.caption %></div>
+                        <div class="hgroup treehidden i18n"><%= hierarchy.caption %></div>
                         <% _.each(hierarchy.levels, function(level) { %>
                             <% if ((Settings.DIMENSION_SHOW_ALL || level.name != "(All)") && (typeof level["visible"] == "undefined" || level["visible"])) { %>
                                 <li class="hide d_level">
                                 <a title="<%= (Settings.DIMENSION_HIDE_HIERARCHY === 'SINGLE_LEVEL' || Settings.DIMENSION_HIDE_HIERARCHY === 'ALL') && dimension.hierarchies.length > 1? hierarchy.caption + ' - ' : '' %><%= level.description ? level.description : level.caption %>" level="<%= level.name %>" hierarchy="<%= hierarchy.uniqueName %>"
-                                    class="level" href="#<%= encodeURIComponent(hierarchy.uniqueName) %>/<%= encodeURIComponent(level.name) %>"><%= level.caption %></a>
+                                    class="level i18n" href="#<%= encodeURIComponent(hierarchy.uniqueName) %>/<%= encodeURIComponent(level.name) %>"><%= level.caption %></a>
                                 </li>
                             <% } %>
                         <% }); %>

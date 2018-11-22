@@ -39,17 +39,17 @@ var FormatAsPercentageModal = Modal.extend({
 	],
 
 	addMeasureTemplate: _.template(
-		"<div class='text'>Name: <input type='text' class='measure_name form-control'></input> </div> " +
-		"<div> <span> Select how to express the measures: </span> </div>" +
+    "<div class='text'><span class='i18n'>Name:</span> <input type='text' class='measure_name form-control'></input> </div> " +
+		"<div><span class='i18n'>Select how to express the measures:</span> </div>" +
 		"<ol style='list-style-type: none;'> " +
 		"<li style='padding-bottom: 10px; padding-right: 10px; float: inherit;'>     " +
-		"    <button class='form_button btn btn-primary formatButton' id='formatOverRows'> Format as % of rows </button></li>" +
+		"    <button class='form_button btn btn-primary formatButton i18n' id='formatOverRows'> Format as % of rows </button></li>" +
 		"<li style='padding-bottom: 10px; padding-right: 10px; float: inherit;'>     " +
-		"    <button class='form_button btn btn-primary formatButton' id='formatOverColumns'> Format as % of columns </button></li>" +
+		"    <button class='form_button btn btn-primary formatButton i18n' id='formatOverColumns'> Format as % of columns </button></li>" +
 		"<li style='padding-bottom: 10px; padding-right: 10px; float: inherit;'>     " +
-		"    <button class='form_button formatButton btn btn-primary' id='formatOverTotal'> Format as % of total </button></li>" +
+		"    <button class='form_button formatButton btn btn-primary i18n' id='formatOverTotal'> Format as % of total </button></li>" +
 		"</ol>" +
-		"<span id='userFeedback'> <p> <%= userFeedback %> </p> </span>"
+		"<span id='userFeedback' class='i18n'><p class='i18n'><%= userFeedback %></p></span>"
 	),
 
 	userFeedback: "",

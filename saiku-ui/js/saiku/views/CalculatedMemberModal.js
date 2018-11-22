@@ -74,7 +74,7 @@ var CalculatedMemberModal = Modal.extend({
                 '<input type="text" class="form-control" id="cms-name" autofocus></div>' +
                 '<div class="cms-measure form-inline" style="padding-bottom:10px;">' +
                 '<label for="cms-measure" class="i18n">Insert Member:</label>' +
-                ' <input type="button" class="form-control btn-primary btn btn-select-member"' +
+                ' <input type="button" class="form-control btn-primary btn btn-select-member i18n"' +
                 ' value="Select Member" title="Insert a member into the formula editor "   ' +
                 'id="insertmember"> </input> </div>' +
                 '<label for="<%= idEditor %>" class="i18n">Formula:</label>' +
@@ -100,16 +100,16 @@ var CalculatedMemberModal = Modal.extend({
                     '<a class="form_button btn btn-default btn-math minimal_padding i18n" href="#add_math_operator_formula"' +
                     ' data-math="not">&nbsp;not&nbsp;</a><br/>' +
                     '<div class="form-inline"><select class="cms-functionlist form-control"><option' +
-                    ' value="">---Insert MDX Function---' +
+                    ' value="" class="i18n">---Insert MDX Function---' +
                     '</select>&nbsp; <a href="" class="cms-doclink" target="_blank" style="display:' +
                     ' none;">Documentation</a><br/></div>'+
                     '</div>' +
 				    '<div class="cms-function">' +
 					'<label for="cms-function" class="i18n">Functions:</label>' +
-					' <input type="button" class="form_button btn btn-primary growthBtn"#'+
+					' <input type="button" class="form_button btn btn-primary growthBtn i18n"#'+
                     ' value="Predefined Calculations"  ' +
 					'         title="Calculate difference. Good to calculate previous period growth "   id="growthBtn" >  </input> ' +
-					' <input type="button" class="form_button btn btn-primary formatBtn"' +
+					' <input type="button" class="form_button btn btn-primary formatBtn i18n"' +
                     ' value="Format %" id="formatBtn"  ' +
 					'title="Post-process step: format this view as percentage of rows, columns or grand total. " />' +
 				'</div><br/>' +
