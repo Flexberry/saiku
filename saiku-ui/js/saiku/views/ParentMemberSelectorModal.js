@@ -73,7 +73,7 @@ var ParentMemberSelectorModal = Modal.extend({
             '<ul>' +
             '</div>' +
             '<div class="group-elements">' +
-            '<input type="search" class="form-control" id="auto-filter" results="5" placeholder="Autocomplete Filter">' +
+            '<input type="search" class="form-control i18n" id="auto-filter" results="5" placeholder="Autocomplete Filter">' +
             '</div>' +
             '</form>'
         ),
@@ -92,9 +92,9 @@ var ParentMemberSelectorModal = Modal.extend({
     ],
 
     /**
-     * The events hash (or method) can be used to specify a set of DOM events 
+     * The events hash (or method) can be used to specify a set of DOM events
      * that will be bound to methods on your View through delegateEvents
-     * 
+     *
      * @property events
      * @type {Object}
      * @private
@@ -288,12 +288,12 @@ var ParentMemberSelectorModal = Modal.extend({
             model.ui.get_last_level();
             model.ui.populate_breadcrumbs(model.ui.breadcrumbs);
             model.ui.$el.find('.dialog_footer').find('a[href="#clear"]').data('name', response[0].name);
-            levelMember = new LevelMember({}, { 
-                ui: model.ui, 
-                cube: model.ui.cube, 
-                dimension: model.ui.dimension, 
-                hierarchy: model.ui.hierarchy, 
-                level: response[0].name 
+            levelMember = new LevelMember({}, {
+                ui: model.ui,
+                cube: model.ui.cube,
+                dimension: model.ui.dimension,
+                hierarchy: model.ui.hierarchy,
+                level: response[0].name
             });
             levelMember.fetch({
                 success: model.ui.get_members
@@ -390,7 +390,7 @@ var ParentMemberSelectorModal = Modal.extend({
         var levelChildMember = new LevelChildMember({}, { ui: this, cube: this.cube, uniqueName: uniqueName });
         levelChildMember.fetch({
             success: this.get_child_members
-        });        
+        });
     },
 
     /**
@@ -451,12 +451,12 @@ var ParentMemberSelectorModal = Modal.extend({
 
         if ($currentTarget.data('action')) {
 
-            var levelMember = new LevelMember({}, { 
-                ui: this, 
-                cube: this.cube, 
-                dimension: this.dimension, 
-                hierarchy: this.hierarchy, 
-                level: $currentTarget.text() 
+            var levelMember = new LevelMember({}, {
+                ui: this,
+                cube: this.cube,
+                dimension: this.dimension,
+                hierarchy: this.hierarchy,
+                level: $currentTarget.text()
             });
             levelMember.fetch({
                 success: this.get_members
@@ -547,12 +547,12 @@ var ParentMemberSelectorModal = Modal.extend({
         event.preventDefault();
 
         var name = $(this.el).find('.dialog_footer').find('a[href="#clear"]').data('name');
-        var levelMember = new LevelMember({}, { 
-            ui: this, 
-            cube: this.cube, 
-            dimension: this.dimension, 
-            hierarchy: this.hierarchy, 
-            level: name 
+        var levelMember = new LevelMember({}, {
+            ui: this,
+            cube: this.cube,
+            dimension: this.dimension,
+            hierarchy: this.hierarchy,
+            level: name
         });
         levelMember.fetch({
             success: this.get_members

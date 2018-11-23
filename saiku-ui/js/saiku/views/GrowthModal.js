@@ -82,7 +82,7 @@ var GrowthModal = Modal.extend({
 		"<td class='col1'><input class='measure_format' type='text' class='form-control' value='#,##0.00'></input></td></tr>" +
 
 		"<tr><td class='col0 i18n'>Formula:</td>" +
-		"<td class='col1'><textarea class='measureFormula auto-hint' class='form-control i18n' placeholder='This field will automatically be constructed by selecting a measure and growth dimension from the dropdown lists above...'>" +
+		"<td class='col1'><textarea class='measureFormula auto-hint i18n' class='form-control i18n' placeholder='This field will automatically be constructed by selecting a measure and growth dimension from the dropdown lists above...'>" +
 		"</textarea></td></tr>" +
 
 		"</table></form>"
