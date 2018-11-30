@@ -565,16 +565,15 @@ SaikuTableRenderer.prototype.internalRender = function(allData, options) {
                     if (header.value == "null") {
                         rowContent += '<th class="col_null">&nbsp;</th>';
                     } else {
-                        if (totalsLists[ROWS]) {
+                        if (totalsLists[ROWS])
                           colSpan = totalsLists[ROWS][row + 1][scanIndexes[ROWS][row + 1]].span;
-                          var headerValue = header.value;
-                          if (headerValue.substr(0, 4) == 'All ' && headerValue.substr(-1) == 's' && 'All' in Saiku.i18n.po_file) {
-                            headerValue = Saiku.i18n.po_file['All'] + headerValue.substr(3,headerValue.length-4);
-                          }
-                        rowContent += '<th class="col" style="text-align: center;" colspan="' + colSpan + '" title="' + header.value + '">'
-                        + (wrapContent ? '<div rel="' + row + ":" + col +'">' + headerValue + '</div>' : headerValue)
-                            + '</th>';
+                        var headerValue = header.value;
+                        if (headerValue.substr(0, 4) == 'All ' && headerValue.substr(-1) == 's' && 'All' in Saiku.i18n.po_file) {
+                          headerValue = Saiku.i18n.po_file['All'] + headerValue.substr(3,headerValue.length-4);
                         }
+                      rowContent += '<th class="col" style="text-align: center;" colspan="' + colSpan + '" title="' + header.value + '">'
+                      + (wrapContent ? '<div rel="' + row + ":" + col +'">' + headerValue + '</div>' : headerValue)
+                          + '</th>';
                     }
 
                 } else {
@@ -588,16 +587,15 @@ SaikuTableRenderer.prototype.internalRender = function(allData, options) {
                         if (header.value == "null") {
                             rowContent += '<th class="col_null" colspan="' + colSpan + '">&nbsp;</th>';
                         } else {
-                          if (totalsLists[ROWS]) {
+                          if (totalsLists[ROWS])
                             colSpan = totalsLists[ROWS][row + 1][scanIndexes[ROWS][row + 1]].span;
-                            var headerValue = header.value;
-                            if (headerValue.substr(0, 4) == 'All ' && headerValue.substr(-1) == 's' && 'All' in Saiku.i18n.po_file) {
-                              headerValue = Saiku.i18n.po_file['All'] + headerValue.substr(3,headerValue.length-4);
-                            }
-                            rowContent += '<th class="col" style="text-align: center;" colspan="' + (colSpan == 0 ? 1 : colSpan) + '" title="' + header.value + '">'
-                            + (wrapContent ? '<div rel="' + row + ":" + col +'">' + headerValue + '</div>' : headerValue)
-                            + '</th>';
+                          var headerValue = header.value;
+                          if (headerValue.substr(0, 4) == 'All ' && headerValue.substr(-1) == 's' && 'All' in Saiku.i18n.po_file) {
+                            headerValue = Saiku.i18n.po_file['All'] + headerValue.substr(3,headerValue.length-4);
                           }
+                          rowContent += '<th class="col" style="text-align: center;" colspan="' + (colSpan == 0 ? 1 : colSpan) + '" title="' + header.value + '">'
+                          + (wrapContent ? '<div rel="' + row + ":" + col +'">' + headerValue + '</div>' : headerValue)
+                          + '</th>';
                         }
                         colSpan = 1;
                     } else {
