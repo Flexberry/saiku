@@ -524,9 +524,12 @@ SaikuTableRenderer.prototype.internalRender = function(allData, options) {
             allData.query.queryModel.details.axis === 'COLUMNS' &&
             allData.query.queryModel.details.location === 'BOTTOM' &&
             auxColumnTitleTable < arrColumnTitleTable.length) {
-
+            var content = arrColumnTitleTable[auxColumnTitleTable];
+            if (content in Saiku.i18n.po_file) {
+              content = Saiku.i18n.po_file[content];
+            }
             rowContent += '<th class="row_header" style="text-align: right;" colspan="' + colspanColumnTitleTable + '" title="' + arrColumnTitleTable[auxColumnTitleTable] + '">'
-                + (wrapContent ? '<div>' + arrColumnTitleTable[auxColumnTitleTable] + '</div>' : arrColumnTitleTable[auxColumnTitleTable])
+            + (wrapContent ? '<div>' + content + '</div>' : content)
                 + '</th>';
 
             auxColumnTitleTable += 1;
@@ -562,11 +565,16 @@ SaikuTableRenderer.prototype.internalRender = function(allData, options) {
                     if (header.value == "null") {
                         rowContent += '<th class="col_null">&nbsp;</th>';
                     } else {
-                        if (totalsLists[ROWS])
-                            colSpan = totalsLists[ROWS][row + 1][scanIndexes[ROWS][row + 1]].span;
+                        if (totalsLists[ROWS]) {
+                          colSpan = totalsLists[ROWS][row + 1][scanIndexes[ROWS][row + 1]].span;
+                          var headerValue = header.value;
+                          if (headerValue.substr(0, 4) == 'All ' && headerValue.substr(-1) == 's' && 'All' in Saiku.i18n.po_file) {
+                            headerValue = Saiku.i18n.po_file['All'] + headerValue.substr(3,headerValue.length-4);
+                          }
                         rowContent += '<th class="col" style="text-align: center;" colspan="' + colSpan + '" title="' + header.value + '">'
-                            + (wrapContent ? '<div rel="' + row + ":" + col +'">' + header.value + '</div>' : header.value)
+                        + (wrapContent ? '<div rel="' + row + ":" + col +'">' + headerValue + '</div>' : headerValue)
                             + '</th>';
+                        }
                     }
 
                 } else {
@@ -580,11 +588,16 @@ SaikuTableRenderer.prototype.internalRender = function(allData, options) {
                         if (header.value == "null") {
                             rowContent += '<th class="col_null" colspan="' + colSpan + '">&nbsp;</th>';
                         } else {
-                            if (totalsLists[ROWS])
-                                colSpan = totalsLists[ROWS][row + 1][scanIndexes[ROWS][row + 1]].span;
+                          if (totalsLists[ROWS]) {
+                            colSpan = totalsLists[ROWS][row + 1][scanIndexes[ROWS][row + 1]].span;
+                            var headerValue = header.value;
+                            if (headerValue.substr(0, 4) == 'All ' && headerValue.substr(-1) == 's' && 'All' in Saiku.i18n.po_file) {
+                              headerValue = Saiku.i18n.po_file['All'] + headerValue.substr(3,headerValue.length-4);
+                            }
                             rowContent += '<th class="col" style="text-align: center;" colspan="' + (colSpan == 0 ? 1 : colSpan) + '" title="' + header.value + '">'
-                            + (wrapContent ? '<div rel="' + row + ":" + col +'">' + header.value + '</div>' : header.value)
+                            + (wrapContent ? '<div rel="' + row + ":" + col +'">' + headerValue + '</div>' : headerValue)
                             + '</th>';
+                          }
                         }
                         colSpan = 1;
                     } else {
@@ -637,10 +650,15 @@ SaikuTableRenderer.prototype.internalRender = function(allData, options) {
                         }
                     }
                 }
-                var value = (same ? "<div>&nbsp;</div>" : '<div rel="' + row + ":" + col + '">'
-                            + (sameAsPrevValue && Settings.ALLOW_TABLE_DATA_COLLAPSE ? '<span class="expander expanded" style="cursor: pointer;">&#9660;</span>' : '' ) + header.value + '</div>');
+                var value =  header.value;
+                if (value.substr(0, 4) == 'All ' && value.substr(-1) == 's' && 'All' in Saiku.i18n.po_file) {
+                  value = Saiku.i18n.po_file['All'] + value.substr(3,value.length-4);
+                }
+
+                value = (same ? "<div>&nbsp;</div>" : '<div rel="' + row + ":" + col + '">'
+                            + (sameAsPrevValue && Settings.ALLOW_TABLE_DATA_COLLAPSE ? '<span class="expander expanded" style="cursor: pointer;">&#9660;</span>' : '' ) + value + '</div>');
                 if (!wrapContent) {
-                    value = (same ? "&nbsp;" : header.value );
+                    value = (same ? "&nbsp;" : value );
                 }
                 var tipsy = "";
                 /* var tipsy = ' original-title="';
@@ -688,8 +706,11 @@ SaikuTableRenderer.prototype.internalRender = function(allData, options) {
 
                     arrPosRowData.push(col);
                 }
-
-                rowContent += '<th class="row_header">' + (wrapContent ? '<div>' + header.value + '</div>' : header.value) + '</th>';
+                var content =  header.value;
+                if (content in Saiku.i18n.po_file) {
+                  content = Saiku.i18n.po_file[content];
+                }
+                rowContent += '<th class="row_header">' + (wrapContent ? '<div>' + content + '</div>' : content) + '</th>';
 
                 arrRowData.push(header.value);
                 objRowData.push({
