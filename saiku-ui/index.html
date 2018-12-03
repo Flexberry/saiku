@@ -244,9 +244,14 @@
 <script type="text/javascript" src="js/saiku/embed/SaikuEmbed.js"></script>
 <!-- ACE Editor for MDX -->
 <script type="text/javascript" src="js/ace/ace.js" charset="utf-8"></script>
-
-
-
+<script type="text/javascript">
+function showHierarchyLevelCaption(caption) {
+   if (caption == '(All)') {
+    caption = Saiku.i18n.po_file['(All)'];
+   }
+  return caption;
+}
+</script>
 <!-- Templates -->
 <script type="text/x-jquery-tmpl" id="template-toolbar">
             <ul>
@@ -325,7 +330,7 @@
                             <% if ((Settings.DIMENSION_SHOW_ALL || level.name != "(All)") && (typeof level["visible"] == "undefined" || level["visible"])) { %>
                                 <li class="hide d_level">
                                 <a title="<%= (Settings.DIMENSION_HIDE_HIERARCHY === 'SINGLE_LEVEL' || Settings.DIMENSION_HIDE_HIERARCHY === 'ALL') && dimension.hierarchies.length > 1? hierarchy.caption + ' - ' : '' %><%= level.description ? level.description : level.caption %>" level="<%= level.name %>" hierarchy="<%= hierarchy.uniqueName %>"
-                                    class="level i18n" href="#<%= encodeURIComponent(hierarchy.uniqueName) %>/<%= encodeURIComponent(level.name) %>"><%= level.caption %></a>
+                                    class="level i18n" href="#<%= encodeURIComponent(hierarchy.uniqueName) %>/<%= encodeURIComponent(level.name) %>"><%= showHierarchyLevelCaption(level.caption) %></a>
                                 </li>
                             <% } %>
                         <% }); %>
