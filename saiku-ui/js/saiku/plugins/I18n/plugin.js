@@ -68,6 +68,13 @@ Saiku.i18n = {
     }
 };
 
+function translate_word(word) {
+  if (word in po_file) {
+    return po_file[word];
+  }
+  return word;
+}
+
 function recursive_menu_translate(object, po_file) {
     if (object && object.hasOwnProperty('name') && object.i18n && po_file) {
     	var translation = po_file[object.name];

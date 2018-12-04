@@ -18,7 +18,7 @@
  * Class which handles table rendering of resultsets
  */
 var Table = Backbone.View.extend({
-    className: 'table_wrapper',
+    className: 'table_wrapper i18n',
     events: {
         'click th.row' : 'clicked_cell',
         'click th.col' : 'clicked_cell',
