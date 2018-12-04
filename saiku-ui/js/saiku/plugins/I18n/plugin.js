@@ -69,8 +69,8 @@ Saiku.i18n = {
 };
 
 function translate_word(word) {
-  if (word in po_file) {
-    return po_file[word];
+  if (word in Saiku.i18n.po_file) {
+    return Saiku.i18n.po_file[word];
   }
   return word;
 }

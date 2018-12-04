@@ -9889,7 +9889,7 @@ var WorkspaceDropZone = Backbone.View.extend({
  * Class which handles table rendering of resultsets
  */
 var Table = Backbone.View.extend({
-    className: 'table_wrapper i18n',
+    className: 'table_wrapper',
     events: {
         'click th.row' : 'clicked_cell',
         'click th.col' : 'clicked_cell',
@@ -10354,7 +10354,7 @@ var Table = Backbone.View.extend({
             return;
         }
         this.clearOut();
-        $(this.el).html('Rendering ' + args.data.width + ' columns and ' + args.data.height + ' rows...');
+        $(this.el).html(translate_word('Rendering ') + args.data.width + translate_word(' columns and ') + args.data.height + translate_word' rows...'));
 
         // Render the table without blocking the UI thread
         _.delay(this.process_data, 2, args.data);
