@@ -526,7 +526,7 @@ SaikuTableRenderer.prototype.internalRender = function(allData, options) {
             auxColumnTitleTable < arrColumnTitleTable.length) {
             var content = arrColumnTitleTable[auxColumnTitleTable];
             if (content in Saiku.i18n.po_file) {
-              content = Saiku.i18n.po_file[content];
+              content = translate_word(content);
             }
             rowContent += '<th class="row_header" style="text-align: right;" colspan="' + colspanColumnTitleTable + '" title="' + arrColumnTitleTable[auxColumnTitleTable] + '">'
             + (wrapContent ? '<div>' + content + '</div>' : content)
@@ -569,7 +569,7 @@ SaikuTableRenderer.prototype.internalRender = function(allData, options) {
                           colSpan = totalsLists[ROWS][row + 1][scanIndexes[ROWS][row + 1]].span;
                         var headerValue = header.value;
                         if (headerValue.substr(0, 4) == 'All ' && headerValue.substr(-1) == 's' && 'All' in Saiku.i18n.po_file) {
-                          headerValue = Saiku.i18n.po_file['All'] + headerValue.substr(3,headerValue.length-4);
+                          headerValue = translate_word('All') + headerValue.substr(3,headerValue.length-4);
                         }
                       rowContent += '<th class="col" style="text-align: center;" colspan="' + colSpan + '" title="' + header.value + '">'
                       + (wrapContent ? '<div rel="' + row + ":" + col +'">' + headerValue + '</div>' : headerValue)
@@ -591,7 +591,7 @@ SaikuTableRenderer.prototype.internalRender = function(allData, options) {
                             colSpan = totalsLists[ROWS][row + 1][scanIndexes[ROWS][row + 1]].span;
                           var headerValue = header.value;
                           if (headerValue.substr(0, 4) == 'All ' && headerValue.substr(-1) == 's' && 'All' in Saiku.i18n.po_file) {
-                            headerValue = Saiku.i18n.po_file['All'] + headerValue.substr(3,headerValue.length-4);
+                            headerValue = translate_word('All') + headerValue.substr(3,headerValue.length-4);
                           }
                           rowContent += '<th class="col" style="text-align: center;" colspan="' + (colSpan == 0 ? 1 : colSpan) + '" title="' + header.value + '">'
                           + (wrapContent ? '<div rel="' + row + ":" + col +'">' + headerValue + '</div>' : headerValue)
@@ -650,7 +650,7 @@ SaikuTableRenderer.prototype.internalRender = function(allData, options) {
                 }
                 var value =  header.value;
                 if (value.substr(0, 4) == 'All ' && value.substr(-1) == 's' && 'All' in Saiku.i18n.po_file) {
-                  value = Saiku.i18n.po_file['All'] + value.substr(3,value.length-4);
+                  value = translate_word('All') + value.substr(3,value.length-4);
                 }
 
                 value = (same ? "<div>&nbsp;</div>" : '<div rel="' + row + ":" + col + '">'
@@ -706,7 +706,7 @@ SaikuTableRenderer.prototype.internalRender = function(allData, options) {
                 }
                 var content =  header.value;
                 if (content in Saiku.i18n.po_file) {
-                  content = Saiku.i18n.po_file[content];
+                  content = translate_word(content);
                 }
                 rowContent += '<th class="row_header">' + (wrapContent ? '<div>' + content + '</div>' : content) + '</th>';
 

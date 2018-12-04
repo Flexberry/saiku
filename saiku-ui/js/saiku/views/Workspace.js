@@ -1084,7 +1084,7 @@ var Workspace = Backbone.View.extend({
         var info = '<b><span class="i18n">Info:</span></b> &nbsp;' + cdate +
                    "&emsp;/ &nbsp;" + args.data.width +
                    " x " + args.data.height +
-                   "&nbsp; / &nbsp;" + runtime + "s";
+                   "&nbsp; / &nbsp;" + runtime + '<span class="i18n">s</span>';
 
 
         this.update_parameters();
