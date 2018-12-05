@@ -2745,7 +2745,7 @@ var pvc = function(def, pv) {
                 this._userIndexesToSingleDim[index] = dimName;
                 this._userRead(this._propGet(dimName, index), dimName);
             }
-            if (N > L) for (var splitGroupName = pvc.splitIndexedId(dimNames[N - 1]), groupName = splitGroupName[0], level = def.nullyTo(splitGroupName[1], 0), i = L; I > i; i++, 
+            if (N > L) for (var splitGroupName = pvc.splitIndexedId(dimNames[N - 1]), groupName = splitGroupName[0], level = def.nullyTo(splitGroupName[1], 0), i = L; I > i; i++,
             level++) {
                 dimName = pvc.buildIndexedId(groupName, level);
                 index = indexes[i];
@@ -4242,7 +4242,7 @@ var pvc = function(def, pv) {
             return key;
         },
         atomsInfo: function(datum) {
-            for (var atoms = {}, dimNames = this._dimNames, D = this.depth, datoms = datum.atoms, i = (datum.owner.keySep, 
+            for (var atoms = {}, dimNames = this._dimNames, D = this.depth, datoms = datum.atoms, i = (datum.owner.keySep,
             0); D > i; i++) {
                 var dimName = dimNames[i];
                 atoms[dimName] = datoms[dimName];
@@ -6823,7 +6823,7 @@ var pvc = function(def, pv) {
             return domainData.children();
         },
         _calcDomainItems: function() {
-            var hasOwn = def.hasOwnProp, domainValuesSet = {}, domainValues = [], domainItems = [], domainData = (this.domainItemValueProp(), 
+            var hasOwn = def.hasOwnProp, domainValuesSet = {}, domainValues = [], domainItems = [], domainData = (this.domainItemValueProp(),
             this.domainData());
             this._selectDomainItems(domainData).each(function(itemData) {
                 var itemValue = this.domainItemValue(itemData);
@@ -12648,7 +12648,7 @@ var pvc = function(def, pv) {
                 var clientSize = layoutInfo.clientSize, wf = clientSize[a_width], hf = clientSize[a_height], w = wf - space[a_width], h = hf - space[a_height], padLeft = paddings[a_left], padRight = paddings[a_right], scene = new pvc.visual.Scene(null, {
                     panel: this
                 }), band = isDiscrete ? scale.range().step : 0, halfBand = band / 2;
-                scene[a_x] = scale(focusWindow.begin) - halfBand, scene[a_dx] = band + (scale(focusWindow.end) - halfBand) - scene[a_x], 
+                scene[a_x] = scale(focusWindow.begin) - halfBand, scene[a_dx] = band + (scale(focusWindow.end) - halfBand) - scene[a_x],
                 resetSceneY();
                 var sceneProp = function(p) {
                     return function() {
@@ -13654,7 +13654,7 @@ var pvc = function(def, pv) {
             this._debugTicksPanel(pvTicksPanel);
         },
         renderLinearAxisLabel: function(pvTicksPanel, wrapper) {
-            var anchorOpposite = (this.pvTicks, this.anchorOpposite()), anchorOrtho = this.anchorOrtho(), font = (this.scale, 
+            var anchorOpposite = (this.pvTicks, this.anchorOpposite()), anchorOrtho = this.anchorOrtho(), font = (this.scale,
             this.font), maxTextWidth = this._layoutInfo.maxTextWidth;
             isFinite(maxTextWidth) || (maxTextWidth = 0);
             var pvLabel = this.pvLabel = new pvc.visual.Label(this, pvTicksPanel, {
@@ -14093,7 +14093,7 @@ var pvc = function(def, pv) {
                 var value = categData.dimensions(valueDimName).value();
                 0 !== value && new CategSceneClass(categData, value);
             });
-            if (!rootScene.childNodes.length && !panel.visualRoles.multiChart.isBound()) throw new InvalidDataException("Unable to create a pie chart, please check the data values.");
+            if (!rootScene.childNodes.length && !panel.visualRoles.multiChart.isBound()) throw new InvalidDataException(translate_word("Unable to create a pie chart, please check the data values."));
         }
     }).add({
         layoutLinkLabels: function(layoutInfo) {
@@ -15070,7 +15070,7 @@ var pvc = function(def, pv) {
         },
         _buildScene: function(data, axisCategDatas, isBaseDiscrete) {
             function completeSeriesScenes(seriesScene) {
-                for (var fromScene, seriesScenes2 = [], seriesScenes = seriesScene.childNodes, notNullCount = 0, firstAloneScene = null, c = 0, toChildIndex = 0, categCount = seriesScenes.length; categCount > c; c++, 
+                for (var fromScene, seriesScenes2 = [], seriesScenes = seriesScene.childNodes, notNullCount = 0, firstAloneScene = null, c = 0, toChildIndex = 0, categCount = seriesScenes.length; categCount > c; c++,
                 toChildIndex++) {
                     var toScene = seriesScenes[toChildIndex], c2 = 2 * c;
                     seriesScenes2[c2] = toScene;
@@ -15978,7 +15978,7 @@ var pvc = function(def, pv) {
                 });
             }
             function completeSeriesScenes(seriesScene) {
-                for (var fromScene, seriesScenes = seriesScene.childNodes, c = 0, toChildIndex = 0, pointCount = seriesScenes.length; pointCount > c; c++, 
+                for (var fromScene, seriesScenes = seriesScene.childNodes, c = 0, toChildIndex = 0, pointCount = seriesScenes.length; pointCount > c; c++,
                 toChildIndex++) {
                     var toScene = seriesScenes[toChildIndex];
                     toScene.isSingle = !fromScene && !toScene.nextSibling;
@@ -17039,7 +17039,7 @@ var pvc = function(def, pv) {
             }
         },
         retrieveData: function() {
-            var i, data = this.chart.data, options = this.chart.options, selectors = (data.getVisibleCategories(), 
+            var i, data = this.chart.data, options = this.chart.options, selectors = (data.getVisibleCategories(),
             data.getVisibleSeries()), values = data.getValues(), selMap = {}, numCols = values.length;
             for (var e in this.structArr) {
                 var elem = this.structArr[e];
@@ -17581,7 +17581,7 @@ var pvc = function(def, pv) {
         _createCore: function(layoutInfo) {
             var me = this, cs = layoutInfo.clientSize, rootScene = me._buildScene();
             if (rootScene) {
-                if (!rootScene.childNodes.length && !this.visualRoles.multiChart.isBound()) throw new InvalidDataException("Unable to create a treemap chart, please check the data values.");
+              if (!rootScene.childNodes.length && !this.visualRoles.multiChart.isBound()) throw new InvalidDataException(translate_word("Unable to create a treemap chart, please check the data values."));
                 var lw0 = def.number.to(me._getConstantExtension("leaf", "lineWidth"), 1), lw = lw0, lw2 = lw / 2, sizeProp = me.visualRoles.size.isBound() ? me.axes.size.scale.by1(function(scene) {
                     return scene.vars.size.value;
                 }) : 100, panel = me.pvTreemapPanel = new pvc.visual.Panel(me, me.pvPanel, {
@@ -17852,7 +17852,7 @@ var pvc = function(def, pv) {
             def.string.is(labelFont) && (this.valuesFont = labelFont);
             var me = this, rootScene = (layoutInfo.clientSize, me._buildScene());
             if (rootScene) {
-                if (!rootScene.childNodes.length && !this.visualRoles.multiChart.isBound()) throw new InvalidDataException("Unable to create a sunburst chart, please check the data values.");
+              if (!rootScene.childNodes.length && !this.visualRoles.multiChart.isBound()) throw new InvalidDataException(translate_word("Unable to create a sunburst chart, please check the data values."));
                 var sizeProp = me.visualRoles.size.isBound() ? me.axes.size.scale.by1(function(scene) {
                     return scene.vars.size.value;
                 }) : def.fun.constant(100), panel = me.pvSunburstPanel = new pvc.visual.Panel(me, me.pvPanel, {

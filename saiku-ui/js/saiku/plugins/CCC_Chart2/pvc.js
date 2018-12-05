@@ -2450,7 +2450,7 @@ var pvc = function(def, pv, cdo) {
                     }
                     var next = this.item.nextSibling;
                     if (next) return this.item = next, 1;
-                    for (var current = this.item; current !== root && (current = current.parentNode); ) if (next = current.nextSibling) return this.item = getFirstLeafFrom(next), 
+                    for (var current = this.item; current !== root && (current = current.parentNode); ) if (next = current.nextSibling) return this.item = getFirstLeafFrom(next),
                     1;
                     return 0;
                 });
@@ -3535,7 +3535,7 @@ var pvc = function(def, pv, cdo) {
                             var name = plot.name;
                             ("plot2" === name || "trend" === name) && (notMainAndAnyOfTrendAndPlot2 = !0);
                         });
-                        if (notMainAndAnyOfTrendAndPlot2) return optionInfo.defaultValue(pvc.brighterColorTransform), 
+                        if (notMainAndAnyOfTrendAndPlot2) return optionInfo.defaultValue(pvc.brighterColorTransform),
                         !0;
                     }
                 }
@@ -3544,7 +3544,7 @@ var pvc = function(def, pv, cdo) {
         },
         NormByCategory: {
             resolve: function(optionInfo) {
-                return this.chart._allowColorPerCategory ? this._resolveFull(optionInfo) : (optionInfo.specify(!1), 
+                return this.chart._allowColorPerCategory ? this._resolveFull(optionInfo) : (optionInfo.specify(!1),
                 !0);
             },
             data: {
@@ -10171,7 +10171,7 @@ var pvc = function(def, pv, cdo) {
                     }
                 }
             }).pvMark.def("lblDirection", "h").textAngle(function(tickScene) {
-                if (tickScene.depth >= vertDepthCutoff && tickScene.depth < diagDepthCutoff) return this.lblDirection("v"), 
+                if (tickScene.depth >= vertDepthCutoff && tickScene.depth < diagDepthCutoff) return this.lblDirection("v"),
                 -Math.PI / 2;
                 if (tickScene.depth >= diagDepthCutoff) {
                     var tan = tickScene.dy / tickScene.dx, angle = Math.atan(tan);
@@ -12034,7 +12034,7 @@ var pvc = function(def, pv, cdo) {
             },
             ValuesLabelStyle: {
                 resolve: function(optionInfo) {
-                    return this.chart.compatVersion() > 1 ? this._resolveFull(optionInfo) : (optionInfo.specify("inside"), 
+                    return this.chart.compatVersion() > 1 ? this._resolveFull(optionInfo) : (optionInfo.specify("inside"),
                     !0);
                 },
                 cast: function(value) {
@@ -12354,7 +12354,7 @@ var pvc = function(def, pv, cdo) {
                 var value = categData.dimensions(valueDimName).value();
                 0 !== value && new CategSceneClass(categData, value);
             });
-            if (!rootScene.childNodes.length && !panel.chart.visualRoles.multiChart.isBound()) throw new pvc.InvalidDataException("Unable to create a pie chart, please check the data values.", "all-zero-data");
+            if (!rootScene.childNodes.length && !panel.chart.visualRoles.multiChart.isBound()) throw new pvc.InvalidDataException(translate_word("Unable to create a pie chart, please check the data values.", "all-zero-data"));
         }
     }).add({
         layoutLinkLabels: function(layoutInfo) {
@@ -13186,7 +13186,7 @@ var pvc = function(def, pv, cdo) {
         },
         _buildSceneCore: function(data, axisSeriesDatas, axisCategDatas) {
             function completeSeriesScenes(seriesScene) {
-                for (var fromScene, seriesScenes2 = [], seriesScenes = seriesScene.childNodes, notNullCount = 0, firstAloneScene = null, c = 0, toChildIndex = 0, categCount = seriesScenes.length; categCount > c; c++, 
+                for (var fromScene, seriesScenes2 = [], seriesScenes = seriesScene.childNodes, notNullCount = 0, firstAloneScene = null, c = 0, toChildIndex = 0, categCount = seriesScenes.length; categCount > c; c++,
                 toChildIndex++) {
                     var toScene = seriesScenes[toChildIndex], c2 = 2 * c;
                     seriesScenes2[c2] = toScene;
@@ -13759,7 +13759,7 @@ var pvc = function(def, pv, cdo) {
                 });
             }
             function completeSeriesScenes(seriesScene) {
-                for (var fromScene, seriesScenes = seriesScene.childNodes, c = 0, toChildIndex = 0, pointCount = seriesScenes.length; pointCount > c; c++, 
+                for (var fromScene, seriesScenes = seriesScene.childNodes, c = 0, toChildIndex = 0, pointCount = seriesScenes.length; pointCount > c; c++,
                 toChildIndex++) {
                     var toScene = seriesScenes[toChildIndex];
                     toScene.isSingle = !fromScene && !toScene.nextSibling;
@@ -14769,7 +14769,7 @@ var pvc = function(def, pv, cdo) {
         _createCore: function(layoutInfo) {
             var me = this, cs = layoutInfo.clientSize, rootScene = me._buildScene();
             if (rootScene) {
-                if (!rootScene.childNodes.length && !this.chart.visualRoles.multiChart.isBound()) throw new pvc.InvalidDataException("Unable to create a treemap chart, please check the data values.", "all-zero-data");
+              if (!rootScene.childNodes.length && !this.chart.visualRoles.multiChart.isBound()) throw new pvc.InvalidDataException(translate_word("Unable to create a treemap chart, please check the data values."), "all-zero-data");
                 var lw0 = def.number.to(me._getConstantExtension("leaf", "lineWidth"), 1), lw = lw0, lw2 = lw / 2, sizeProp = me.visualRoles.size.isBound() ? me.axes.size.scale.by1(function(scene) {
                     return scene.vars.size.value;
                 }) : 100, panel = me.pvTreemapPanel = new pvc.visual.Panel(me, me.pvPanel, {
@@ -15077,7 +15077,7 @@ var pvc = function(def, pv, cdo) {
             def.string.is(labelFont) && (this.valuesFont = labelFont);
             var me = this, rootScene = me._buildScene();
             if (rootScene) {
-                if (!rootScene.childNodes.length && !this.chart.visualRoles.multiChart.isBound()) throw new pvc.InvalidDataException("Unable to create a sunburst chart, please check the data values.", "all-zero-data");
+              if (!rootScene.childNodes.length && !this.chart.visualRoles.multiChart.isBound()) throw new pvc.InvalidDataException(translate_word("Unable to create a sunburst chart, please check the data values."), "all-zero-data");
                 var sizeProp = me.visualRoles.size.isBound() ? me.axes.size.scale.by1(function(scene) {
                     return scene.vars.size.value;
                 }) : def.fun.constant(100), panel = me.pvSunburstPanel = new pvc.visual.Panel(me, me.pvPanel, {
