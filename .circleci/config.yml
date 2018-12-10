@@ -47,3 +47,11 @@ jobs:
           path: saiku-server/target/
       - store_artifacts:
           path: saiku-bi-platform-plugin-p7.1/target/
+      - store_artifacts:
+          path: saiku-olap-util/target/
+      - store_artifacts:
+          path: saiku-web/target/
+      - store_artifacts:
+          path: saiku-service/target/
+      - store_artifacts:
+          path: saiku-query/target/
