@@ -50,7 +50,7 @@ jobs:
       - store_artifacts:
           path: saiku-olap-util/target/
       - store_artifacts:
-          path: saiku-web/target/
+          path: saiku-core/saiku-web/target/
       - store_artifacts:
           path: saiku-service/target/
       - store_artifacts:
