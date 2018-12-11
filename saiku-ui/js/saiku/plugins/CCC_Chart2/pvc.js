@@ -12610,7 +12610,7 @@ var pvc = function(def, pv, cdo) {
             _getCategoryRoleSpec: function() {
                 var catRoleSpec = this.base(), travProp = this.isFalling() ? "FlattenDfsPre" : "FlattenDfsPost";
                 catRoleSpec.traversalModes = pvc.visual.TraversalMode[travProp];
-                catRoleSpec.rootLabel = translate_word(.option("AllCategoryLabel"));
+                catRoleSpec.rootLabel = translate_word(this.option("AllCategoryLabel"));
                 return catRoleSpec;
             },
             isFalling: function() {
@@ -12662,7 +12662,7 @@ var pvc = function(def, pv, cdo) {
                 var rootScene = legendPanel._getLegendRootScene();
                 new pvc.visual.legend.WaterfallLegendGroupScene(rootScene, this, {
                     extensionPrefix: def.indexedId("", 1),
-                    label: translate_word(.option("TotalLineLabel")),
+                    label: translate_word(this.option("TotalLineLabel")),
                     color: this._waterColor
                 });
             }
