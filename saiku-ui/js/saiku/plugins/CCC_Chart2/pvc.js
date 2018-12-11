@@ -12679,7 +12679,7 @@ var pvc = function(def, pv, cdo) {
             TotalLineLabel: {
                 resolve: "_resolveFull",
                 cast: String,
-                value: "Accumulated"
+                value: translate_word("Accumulated")
             },
             TotalValuesVisible: {
                 resolve: "_resolveFull",
@@ -12693,7 +12693,7 @@ var pvc = function(def, pv, cdo) {
             Direction: {
                 resolve: "_resolveFull",
                 cast: pvc.parseWaterDirection,
-                value: "down"
+                value: translate_word("down")
             },
             AreasVisible: {
                 resolve: "_resolveFull",
@@ -12703,7 +12703,7 @@ var pvc = function(def, pv, cdo) {
             AllCategoryLabel: {
                 resolve: "_resolveFull",
                 cast: String,
-                value: "All"
+                value: translate_word("All")
             }
         }
     }));
