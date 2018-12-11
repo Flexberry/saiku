@@ -8600,7 +8600,7 @@ var pvc = function(def, pv) {
         TotalLineLabel: {
             resolve: "_resolveFull",
             cast: String,
-            value: translate_word("Accumulated)"
+            value: "Accumulated"
         },
         TotalValuesVisible: {
             resolve: "_resolveFull",
@@ -8615,7 +8615,7 @@ var pvc = function(def, pv) {
         Direction: {
             resolve: "_resolveFull",
             cast: pvc.parseWaterDirection,
-            value: translate_word("down")
+            value: "down"
         },
         AreasVisible: {
             resolve: "_resolveFull",
@@ -8625,7 +8625,7 @@ var pvc = function(def, pv) {
         AllCategoryLabel: {
             resolve: "_resolveFull",
             cast: String,
-            value: translate_word("All")
+            value: "All"
         }
     });
     def.type("pvc.visual.PointPlot", pvc.visual.CategoricalPlot).add({
@@ -14817,7 +14817,7 @@ var pvc = function(def, pv) {
             this._isFalling = "down" === waterPlot.option("Direction");
             var travProp = this._isFalling ? "FlattenDfsPre" : "FlattenDfsPost";
             this._catRole.setTraversalMode(pvc.visual.TraversalMode[travProp]);
-            this._catRole.setRootLabel(waterPlot.option("AllCategoryLabel"));
+            this._catRole.setRootLabel(translate_word(waterPlot.option("AllCategoryLabel")));
         },
         _initLegendScenes: function(legendPanel) {
             var waterPlot = this.plots.water, extAbsId = pvc.makeExtensionAbsId("line", waterPlot.extensionPrefixes), strokeStyle = this._getConstantExtension(extAbsId, "strokeStyle");
@@ -14825,7 +14825,7 @@ var pvc = function(def, pv) {
             var rootScene = legendPanel._getBulletRootScene();
             new pvc.visual.legend.WaterfallBulletGroupScene(rootScene, {
                 extensionPrefix: pvc.buildIndexedId("", 1),
-                label: waterPlot.option("TotalLineLabel"),
+                label: translate_word(waterPlot.option("TotalLineLabel")),
                 color: this._waterColor
             });
             this.base(legendPanel);

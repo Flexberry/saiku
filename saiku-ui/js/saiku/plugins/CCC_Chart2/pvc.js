@@ -12610,11 +12610,11 @@ var pvc = function(def, pv, cdo) {
             _getCategoryRoleSpec: function() {
                 var catRoleSpec = this.base(), travProp = this.isFalling() ? "FlattenDfsPre" : "FlattenDfsPost";
                 catRoleSpec.traversalModes = pvc.visual.TraversalMode[travProp];
-                catRoleSpec.rootLabel = this.option("AllCategoryLabel");
+                catRoleSpec.rootLabel = translate_word(.option("AllCategoryLabel"));
                 return catRoleSpec;
             },
             isFalling: function() {
-                return "down" === this.option("Direction");
+                return "down" === translate_word(this.option("Direction"));
             },
             _reduceStackedCategoryValueExtent: function(chart, result, catRange, catGroup, valueAxis, valueDataCell) {
                 var offsetNext, offsetPrev = result ? result.offset : 0, offsetDelta = catRange.min + catRange.max;
@@ -12662,7 +12662,7 @@ var pvc = function(def, pv, cdo) {
                 var rootScene = legendPanel._getLegendRootScene();
                 new pvc.visual.legend.WaterfallLegendGroupScene(rootScene, this, {
                     extensionPrefix: def.indexedId("", 1),
-                    label: this.option("TotalLineLabel"),
+                    label: translate_word(.option("TotalLineLabel")),
                     color: this._waterColor
                 });
             }
@@ -12679,7 +12679,7 @@ var pvc = function(def, pv, cdo) {
             TotalLineLabel: {
                 resolve: "_resolveFull",
                 cast: String,
-                value: translate_word("Accumulated")
+                value: "Accumulated"
             },
             TotalValuesVisible: {
                 resolve: "_resolveFull",
@@ -12703,7 +12703,7 @@ var pvc = function(def, pv, cdo) {
             AllCategoryLabel: {
                 resolve: "_resolveFull",
                 cast: String,
-                value: translate_word("All")
+                value: "All"
             }
         }
     }));
