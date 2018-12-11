@@ -4,15 +4,15 @@
         <renderer mime="application/pdf">
             <fonts>
                 <!-- your specific font mapping -->
-                <!-- font kerning="yes" embed-url="YOUR_FONT_FILE_FULL_PATH.ttf" embedding-mode="subset">
-                    <font-triplet name="YOUR_FONT_NAME" style="normal" weight="normal"/>
-                </font -->
+                <font kerning="yes" embed-url="/usr/share/fonts/truetype/msttcorefonts/Verdana.ttf" embedding-mode="subset">
+                    <font-triplet name="Verdana" style="normal" weight="normal"/>
+                </font >
 
                 <!-- "bulk" font mapping -->
-                <!-- directory recursive="true">YOUR_FONTS_DIRECTORY</directory -->
+                <directory recursive="true">/usr/share/fonts/truetype/msttcorefonts/</directory>
 
                 <!-- automatically detect operating system installed fonts -->
-                <!--auto-detect/-->
+                <auto-detect/>
             </fonts>
         </renderer>
     </renderers>

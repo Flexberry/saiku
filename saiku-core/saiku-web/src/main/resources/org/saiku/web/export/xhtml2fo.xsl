@@ -6,8 +6,8 @@
                 encoding="utf-8" media-type="text/xml" indent="yes"/>
     <xsl:strip-space elements="*"/>
     <xsl:preserve-space elements="xhtml:listing listing xhtml:plaintext plaintext xhtml:pre pre xhtml:samp samp"/>
-    <xsl:param name="font-size" select="''"/>
-    <xsl:param name="font.symbol" select="'Arial Unicode MS'"/>
+    <xsl:param name="font-size" select="'12'"/>
+    <xsl:param name="font.symbol" select="'Verdana'"/>
     <xsl:param name="page_width"/>
     <xsl:param name="page_height"/>
 
