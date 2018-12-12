@@ -34,16 +34,18 @@ function setStyleNegativeNumber(value) {
     return className;
 }
 
-function getAxisSize(data, axisName) {
-    var queryData = data.query.queryModel.axes[axisName].hierarchies;
-    var len = queryData.length;
-    var axisSize = 0;
+function getAxisSize(data) {
+  var axisSize = data.cellset.reduce(function(sum, current) {
+    var curres = current.reduce(function(sumcurrent, currentel) {
+        if (currentel.type  === "ROW_HEADER_HEADER")
+          return sumcurrent + 1;
+        return sumcurrent;
+      }, 0);
+  
+      return sum + curres;
+  }, 0);
 
-    for (var i = 0; i < len; i++) {
-        axisSize += _.size(queryData[i].levels);
-    }
-
-    return axisSize;
+  return axisSize;
 }
 
 function getDomColumnsLevelsName(htmlObject) {
@@ -466,7 +468,7 @@ SaikuTableRenderer.prototype.internalRender = function(allData, options) {
 
         var arrColumnTitleTable = getAxisLevelsName(allData, COLUMNS);
         var arrDomColumnTitleTable = getDomColumnsLevelsName(this._options.htmlObject);
-        var colspanColumnTitleTable = getAxisSize(allData, ROWS);
+        var colspanColumnTitleTable = getAxisSize(allData);
         var auxColumnTitleTable = 0;
 
         if (arrColumnTitleTable.length === arrDomColumnTitleTable.length) {
