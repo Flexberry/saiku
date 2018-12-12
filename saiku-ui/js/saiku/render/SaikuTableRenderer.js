@@ -704,11 +704,14 @@ SaikuTableRenderer.prototype.internalRender = function(allData, options) {
 
                     arrPosRowData.push(col);
                 }
-                var content =  header.value;
-                if (content in Saiku.i18n.po_file) {
-                  content = translate_word(content);
+                if ( header.value in Saiku.i18n.po_file) {
+                   header.value = translate_word( header.value);
+                } else {
+                  if ( header.value.indexOf('(All)') >= 0 && '(All)' in  Saiku.i18n.po_file) {
+                     header.value =  header.value.replace('(All)',   translate_word('(All)'));
+                  }
                 }
-                rowContent += '<th class="row_header">' + (wrapContent ? '<div>' + content + '</div>' : content) + '</th>';
+                rowContent += '<th class="row_header">' + (wrapContent ? '<div>' +  header.value + '</div>' :  header.value) + '</th>';
 
                 arrRowData.push(header.value);
                 objRowData.push({
