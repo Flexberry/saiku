@@ -14586,7 +14586,7 @@ var pvc = function(def, pv, cdo) {
                     isRequired: !0,
                     defaultDimension: "category*",
                     autoCreateDimension: !0,
-                    rootLabel: this.option("RootCategoryLabel")
+                    rootLabel: translate_word(this.option("RootCategoryLabel"))
                 });
                 this._addVisualRole("size", {
                     isMeasure: !0,
@@ -14602,7 +14602,7 @@ var pvc = function(def, pv, cdo) {
                 return {
                     defaultSourceRole: "category",
                     defaultDimension: "color*",
-                    rootLabel: this.option("RootCategoryLabel"),
+                    rootLabel: translate_word(this.option("RootCategoryLabel")),
                     requireIsDiscrete: !0
                 };
             },
@@ -14945,7 +14945,7 @@ var pvc = function(def, pv, cdo) {
                     isRequired: !0,
                     defaultDimension: "category*",
                     autoCreateDimension: !0,
-                    rootLabel: this.option("RootCategoryLabel")
+                    rootLabel: translate_word(this.option("RootCategoryLabel"))
                 });
                 this._addVisualRole("size", {
                     isMeasure: !0,
@@ -14962,7 +14962,7 @@ var pvc = function(def, pv, cdo) {
                     defaultSourceRole: "category",
                     defaultDimension: "color*",
                     requireIsDiscrete: !0,
-                    rootLabel: this.option("RootCategoryLabel")
+                    rootLabel: translate_word(this.option("RootCategoryLabel"))
                 };
             },
             createVisibleData: function(baseData, ka) {
