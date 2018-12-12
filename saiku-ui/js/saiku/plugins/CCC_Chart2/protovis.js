@@ -13,7 +13,7 @@
 
 /*!
  * Copyright 2002 - 2013 Webdetails, a Pentaho company.  All rights reserved.
- * 
+ *
  * This software was developed by Webdetails and is provided under the terms
  * of the Mozilla Public License, Version 2.0, or any later version. You may not use
  * this file except in compliance with the license. If you need a copy of the license,
@@ -3889,7 +3889,7 @@ pv.Scene = pv.SvgScene = {
 
 pv.SvgScene.updateAll = function(scenes) {
     if (scenes.length && scenes[0].reverse && "line" !== scenes.type && "area" !== scenes.type) {
-        for (var reversed = Object.create(scenes), i = 0, j = scenes.length - 1; j >= 0; i++, 
+        for (var reversed = Object.create(scenes), i = 0, j = scenes.length - 1; j >= 0; i++,
         j--) reversed[i] = scenes[j];
         scenes = reversed;
     }
@@ -4493,7 +4493,7 @@ pv.SvgScene.areaSegmentStraightPaths = function(scenes, i, j) {
 };
 
 pv.SvgScene.areaJoinPaths = function(pathsT, pathsB, i, j) {
-    for (var fullPathT = "", fullPathB = "", N = pathsT.length, k = i, l = N - 1 - j; j >= k; k++, 
+    for (var fullPathT = "", fullPathB = "", N = pathsT.length, k = i, l = N - 1 - j; j >= k; k++,
     l++) {
         var dT, dB, pathT = pathsT[k], pathB = pathsB[l];
         if (k === i) {
@@ -4797,6 +4797,9 @@ pv.SvgScene.label = function(scenes) {
         if (s.visible) {
             var fill = s.textStyle;
             if (fill.opacity && s.text) {
+                if (s.text.substr(0, 4) == 'All ' && s.text.substr(-1) == 's' && 'All' in Saiku.i18n.po_file) {
+                  s.text = translate_word('All') + s.text.substr(3,s.text.length-4);
+                }
                 var x = 0, y = 0, dy = 0, anchor = "start";
                 switch (s.textBaseline) {
                   case "middle":
