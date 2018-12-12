@@ -35,17 +35,17 @@ function setStyleNegativeNumber(value) {
 }
 
 function getAxisSize(data) {
-  var axisSize = data.cellset.reduce(function(sum, current) {
-    var curres = current.reduce(function(sumcurrent, currentel) {
-        if (currentel.type  === "ROW_HEADER_HEADER")
-          return sumcurrent + 1;
-        return sumcurrent;
-      }, 0);
-  
-      return sum + curres;
-  }, 0);
+    var axisSize = data.cellset.reduce(function(sum, current) {
+        var curres = current.reduce(function(sumcurrent, currentel) {
+            if (currentel.type  === "ROW_HEADER_HEADER") {
+                return sumcurrent + 1;
+            }
+            return sumcurrent;
+        }, 0);
+        return sum + curres;
+    }, 0);
 
-  return axisSize;
+    return axisSize;
 }
 
 function getDomColumnsLevelsName(htmlObject) {
