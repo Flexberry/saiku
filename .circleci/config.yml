@@ -37,6 +37,7 @@ jobs:
       # run tests!
       #- run: docker login -u $DOCKER_USER -p $DOCKER_PASS
       - run: mvn -Pdocker-build -s .circleci/settings.xml install -DskipTests
+      - run: tar cfz /tmp/m2.tgz ~/.m2
       - save_cache:
           paths:
             - ~/.m2
@@ -55,3 +56,5 @@ jobs:
           path: saiku-service/target/
       - store_artifacts:
           path: saiku-query/target/
+      - store_artifacts:
+          path: /tmp/m2.tgz
