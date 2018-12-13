@@ -145,7 +145,7 @@ li.selection .hgroup:hover {
   list-style-type: none;
   cursor: pointer;
   text-align: left;
-  white-space: nowrap;
+  white-space: normal;
 }
 
 .fields_list .fields_list_body ul.hierarchy li,
