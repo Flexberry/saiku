@@ -8,10 +8,7 @@ import com.lowagie.text.pdf.PdfWriter;
 import org.apache.batik.transcoder.TranscoderInput;
 import org.apache.batik.transcoder.print.PrintTranscoder;
 import org.apache.commons.lang.StringUtils;
-import org.apache.fop.apps.Fop;
-import org.apache.fop.apps.FopFactory;
-import org.apache.fop.apps.FopFactoryBuilder;
-import org.apache.fop.apps.MimeConstants;
+import org.apache.fop.apps.*;
 import org.saiku.service.util.exception.SaikuServiceException;
 import org.saiku.service.util.export.PdfPerformanceLogger;
 import org.saiku.web.rest.objects.resultset.QueryResult;
@@ -28,6 +25,7 @@ import javax.xml.transform.Transformer;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.sax.SAXResult;
+import javax.xml.transform.stream.StreamSource;
 import java.awt.*;
 import java.awt.print.PageFormat;
 import java.awt.print.Paper;
@@ -188,11 +186,18 @@ public class PdfReport {
         return "<p>" + "Saiku Export - " + dateFormat.format(date) + "</p>";
     }
 
+
     private byte[] fo2Pdf(org.w3c.dom.Document foDocument, String styleSheet, Rectangle size) {
         FopFactoryBuilder builder = null;
         try {
-            builder = new FopFactoryBuilder(this.getClass().getResource("fop_config.xml").toURI());
+            InputStream is = this.getClass().getResourceAsStream("fop_config.xml");
+            FopConfParser fopConfParser = new FopConfParser(is, this.getClass().getResource("fop_config.xml").toURI());
+            builder = fopConfParser.getFopFactoryBuilder();
+        } catch (SAXException e) {
+            e.printStackTrace();
         } catch (URISyntaxException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
             e.printStackTrace();
         }
         builder.setStrictFOValidation(false);
